@@ -54,7 +54,7 @@ public class Banca {
         for(String key: conti.keySet() ){
 
             conti.get(key).operazioni(conti.get(key).getImportoAcc());
-                System.out.println(conti.get(key) instanceof ContoWeb);
+
 
         }
         return true;
@@ -75,14 +75,14 @@ public class Banca {
         Conto test = conti.get(iban);
         if(!(test instanceof ContoWeb)){
 
-            System.out.println(test.operazioni(amnt));
+            test.operazioni(amnt);
         }
     }
 
     public void operazione(String iban, double amnt, String pass){
         Conto test = conti.get(iban);
         if(test instanceof ContoWeb) {
-            System.out.println(((ContoWeb) test).operazioni(amnt, pass));
+            ((ContoWeb) test).operazioni(amnt, pass);
         }
     }
 

@@ -1,5 +1,5 @@
 public class Tester {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Banca b = new Banca("NuovaBanca",10);
         Abbonamento abbTV = new Abbonamento(AccountableType.ADDEBITO,-50);
         Stipendio stipendio = new Stipendio(AccountableType.ACCREDITO,0);
@@ -19,7 +19,7 @@ public class Tester {
         b.aggAcc("ITA000CF33", 3000, stipendio.getTipo());
         b.aggAcc("ITA000CF44", 3000, stipendio.getTipo());
 
-        System.out.println(b.changePW("ITA000CF22","password1"));
+        b.changePW("ITA000CF22","password1");
         b.changePW("ITA000CF44","password2");
 
         b.operazione("ITA000CF11",100);
@@ -35,8 +35,17 @@ public class Tester {
         b.operazione("ITA000CF44",100, "password2");
         b.operazione("ITA000CF44",100, "password3");
 
-        b.fineMese();
+        for(int i=0; i<12; i++) {
+            b.fineMese();
+            System.out.println("Saldo mese "+(i+1));
+            System.out.println(b.detConto("ITA000CF11"));
+            System.out.println(b.detConto("ITA000CF22"));
+            System.out.println(b.detConto("ITA000CF33"));
+            System.out.println(b.detConto("ITA000CF44"));
+            Thread.sleep(5000);
 
+        }
+        System.out.println("%Saldo a fine anno%");
         System.out.println(b.detConto("ITA000CF11"));
         System.out.println(b.detConto("ITA000CF22"));
         System.out.println(b.detConto("ITA000CF33"));

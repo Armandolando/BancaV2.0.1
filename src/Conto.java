@@ -16,7 +16,7 @@ public abstract class Conto implements Operazioni,Accountable{
 
 
     public boolean aggiungiAcc(AccountableType tipo,double amnt){
-        System.out.println(amnt);
+
         switch (tipo){
             case ADDEBITO:
                 importoAcc+=amnt;
@@ -24,7 +24,7 @@ public abstract class Conto implements Operazioni,Accountable{
                 break;
             case ACCREDITO:
                 importoAcc+=amnt;
-                System.out.println(importoAcc);
+
                 break;
             default:
                 return false;
