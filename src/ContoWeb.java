@@ -29,12 +29,11 @@ public class ContoWeb extends ContoCorrente {
         if(login(pass) && !(test)){
            return super.operazioni(amnt);
         }
+        System.out.println("Password sbagliata o non ancora cambiata quella di default");
         return false;
     }
 
-    String getPsw() {
-        return psw;
-    }
+
 
     @Override
     public double getSaldo() {
