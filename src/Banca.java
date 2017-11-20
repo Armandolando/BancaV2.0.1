@@ -54,6 +54,7 @@ public class Banca {
         for(String key: conti.keySet() ){
 
             conti.get(key).operazioni(conti.get(key).getImportoAcc());
+            conti.get(key).operazioni(conti.get(key).getImportoAdd());
 
 
         }

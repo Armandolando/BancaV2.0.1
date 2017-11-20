@@ -2,6 +2,7 @@ public abstract class Conto implements Operazioni,Accountable{
     private String iban,cf;
     protected double saldo;
     protected  double importoAcc;
+    protected double importoAdd;
     private AbstractAccountable acc;
 
 
@@ -10,6 +11,7 @@ public abstract class Conto implements Operazioni,Accountable{
         this.cf = cf;
         this.saldo=0;
         this.importoAcc=0;
+        this.importoAdd = 0;
 
 
     }
@@ -19,7 +21,7 @@ public abstract class Conto implements Operazioni,Accountable{
 
         switch (tipo){
             case ADDEBITO:
-                importoAcc+=amnt;
+                importoAdd+=amnt;
 
                 break;
             case ACCREDITO:
@@ -53,5 +55,9 @@ public abstract class Conto implements Operazioni,Accountable{
 
     public double getImportoAcc() {
         return importoAcc;
+    }
+
+    public double getImportoAdd() {
+        return importoAdd;
     }
 }
